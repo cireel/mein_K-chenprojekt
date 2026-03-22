@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Connexion - Résidence</title>
+</head>
+<body>
+    <h2>Se connecter</h2>
+    
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul style="color: red;">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+        <input type="text" name="username" placeholder="Ton nom" required><br><br>
+        <input type="password" name="password" placeholder="Mot de passe" required><br><br>
+        <button type="submit">Entrer</button>
+    </form>
+
+    <p>Pas encore de compte ? <a href="{{ url_for('inscription') }}">S'inscrire ici</a></p>
+</body>
+</html>
